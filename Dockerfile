@@ -8,7 +8,8 @@ RUN apk --no-cache --virtual build-dependencies add python git make g++ && \
     npm install -g sequelize && \
     npm install && \
     apk del build-dependencies && \
-    apk --no-cache add mysql-client
+    rm -rf /root && \
+    apk --no-cache add curl
 
 ENV DOCKERIZE_VERSION v0.6.1
 RUN wget https://github.com/jwilder/dockerize/releases/download/$DOCKERIZE_VERSION/dockerize-alpine-linux-amd64-$DOCKERIZE_VERSION.tar.gz \
